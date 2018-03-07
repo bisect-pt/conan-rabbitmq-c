@@ -67,7 +67,6 @@ class RabbitmqcConan(ConanFile):
 #            self.copy(pattern="*.pdb", dst="lib", src=".", keep_path=False)
 
     def package_info(self):
-
         if self.settings.os == "Linux":
             self.cpp_info.libs = ["rabbitmq", "rt"]
         elif self.settings.os == "Windows":
