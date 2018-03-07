@@ -70,15 +70,16 @@ class RabbitmqcConan(ConanFile):
 
         if self.settings.os == "Linux":
             self.cpp_info.libs = ["rabbitmq", "rt"]
-#        elif self.settings.os == "Windows":
-#            self.cpp_info.libs = ["rabbitmq.4"]
+        elif self.settings.os == "Windows":
+            self.cpp_info.libs = ["librabbitmq.4.lib"]
         else:
             self.cpp_info.libs = ["rabbitmq"]
 
         if self.settings.os == "Linux":
             self.cpp_info.libs.append("pthread")
-
         elif self.settings.os == "Windows":
+            self.cpp_info.libs.append("ws2_32.lib")
+
             # Need to link with crypt32 as well for OpenSSL
             if not self.options.no_openssl:
                 self.cpp_info.libs.append("crypt32")
