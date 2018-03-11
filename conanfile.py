@@ -70,7 +70,7 @@ class RabbitmqcConan(ConanFile):
         if self.settings.os == "Linux":
             self.cpp_info.libs = ["rabbitmq", "rt"]
         elif self.settings.os == "Windows":
-            self.cpp_info.libs = ["rabbitmq.4"]
+            self.cpp_info.libs = ["librabbitmq.4"]
         else:
             self.cpp_info.libs = ["rabbitmq"]
 
